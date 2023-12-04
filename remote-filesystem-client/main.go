@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -27,12 +26,6 @@ func defaultForm(rw http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(rw, html.Index)
 }
 
-type current_dir struct {
-    Dir   []string `json:"dir"`
-	Files []string `json:"files"`
-	Path  string   `json:"path"`
-}
-
 func connectForm(rw http.ResponseWriter, r *http.Request) {
 	res, err := http.Get(r.FormValue("user_address"))
 	if err != nil {
@@ -47,13 +40,7 @@ func connectForm(rw http.ResponseWriter, r *http.Request) {
 		return
     }
     log.Println(string(body))
-    var dir current_dir
-    err = json.Unmarshal(body, &dir)
-    if err != nil {
-		fmt.Fprint(rw, html.ReturnErrorForm(err.Error()))
-		return
-    }
-    fmt.Println(dir)
+    fmt.Fprint(rw, html.ReturnDir(body))
 }
 
 func createListener() (l net.Listener, close func()) {

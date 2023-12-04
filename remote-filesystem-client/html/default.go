@@ -13,7 +13,7 @@ var Index = `
             <h1>Access</h1>
             <ul>
                 <li>
-                    <label for="address">port:</label>
+                    <label for="address">address:</label>
                     <input type="text" id="address" name="user_address" />
                 </li>
                 <li>
@@ -30,7 +30,7 @@ var Form = `
             <h1>Access</h1>
             <ul>
                 <li>
-                    <label for="address">port:</label>
+                    <label for="address">address:</label>
                     <input type="text" id="address" name="user_address" />
                 </li>
                 <li>

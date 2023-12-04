@@ -7,7 +7,7 @@ import (
 	"log"
 	"net"
 	"net/http"
-	"remote-filesystem/html"
+	"remote-filesystem-client/html"
 )
 
 var user_address string
